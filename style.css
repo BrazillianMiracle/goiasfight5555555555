@@ -1,0 +1,421 @@
+/* ---------------------------------- */
+/* 1. VARIÁVEIS, RESET E TIPOGRAFIA */
+/* ---------------------------------- */
+:root {
+    --color-primary: #FF4500; /* Laranja de Alto Impacto */
+    --color-secondary: #0D0D0D; /* Preto Esportivo */
+    --color-background: #F0F0F0; /* Fundo Suave */
+    --color-light-bg: #EAEAEA; /* Cinza claro para contraste */
+    --color-text-light: #F5F5F5;
+    --color-text-dark: #222;
+    --font-heading: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+}
+
+.container {
+    width: 95%; /* Usando 95% para otimizar o espaço horizontal */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* ---------------------------------- */
+/* 2. CLASSES GERAIS E BOTÕES */
+/* ---------------------------------- */
+.section {
+    padding: 60px 0; /* Reduzido de 80px para otimizar espaço vertical */
+}
+
+.section__title {
+    font-size: 2.8em;
+    text-align: center;
+    color: var(--color-secondary);
+    margin-bottom: 40px; /* Reduzido */
+    padding-bottom: 10px;
+    border-bottom: 5px solid var(--color-primary);
+    display: block;
+    width: fit-content;
+    margin: 0 auto 40px;
+}
+
+.bg--dark {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+.bg--dark .section__title {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-text-light);
+}
+
+/* Nova cor para Workshop (Laranja Fundo) */
+.bg--orange {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+.bg--orange .section__title {
+    color: var(--color-text-light);
+    border-bottom-color: var(--color-secondary);
+}
+.section__title--white {
+    color: white !important;
+}
+
+/* Botões */
+.btn--cta, .btn--event {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border: 3px solid var(--color-primary);
+    box-shadow: none;
+    transition: background-color 0.3s;
+}
+.btn--cta:hover, .btn--event:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn--add-cart {
+    background-color: var(--color-primary); /* Laranja predominante no botão */
+    color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
+    font-size: 0.9em;
+    padding: 8px 15px;
+    width: 100%;
+    margin-top: 10px;
+}
+.btn--add-cart:hover {
+    background-color: #CC3800;
+    color: white;
+}
+
+/* ---------------------------------- */
+/* 3. HERO (Prioridade Eventos) e LOGIN (Embutido) */
+/* ---------------------------------- */
+.hero-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://via.placeholder.com/1600x450/1A1A1A/FF4500?text=GOIAS+FIGHT+ARENA');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 80px 0; /* Reduzido */
+    border-bottom: 6px solid var(--color-primary);
+}
+
+.hero-banner__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centraliza verticalmente o texto e o login */
+    gap: 30px;
+}
+
+.hero-text-area {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.hero-text-area h1 {
+    font-size: 3em; /* Reduzido para melhor otimização */
+    color: var(--color-primary);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+.hero-text-area p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+}
+
+/* Estilo do Formulário de Login (Compacto) */
+.login-form-wrapper {
+    background-color: var(--color-light-bg); /* Fundo claro para contraste */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 320px; /* Largura fixa menor */
+    text-align: center;
+    border: 3px solid var(--color-primary);
+}
+
+.login-form-wrapper h2 {
+    color: var(--color-secondary);
+    font-size: 1.5em; /* Menor */
+    margin-bottom: 15px;
+}
+
+.login-form input {
+    background-color: white;
+    border: 1px solid #CCC;
+}
+
+.login-form .btn--cta {
+    background-color: var(--color-primary);
+    color: white;
+}
+.login-form .btn--cta:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+.forgot-link {
+    color: var(--color-secondary);
+}
+
+/* ---------------------------------- */
+/* 4. SEÇÃO EVENTOS (Mais anúncios e criatividade) */
+/* ---------------------------------- */
+.events-grid {
+    display: grid;
+    /* 1 coluna principal (maior) e 4 menores (otimizando) */
+    grid-template-columns: 2fr repeat(2, 1fr); 
+    gap: 20px;
+}
+
+.event-card--main {
+    grid-column: 1 / span 1; /* Ocupa 1/3 da largura */
+    background-color: var(--color-secondary);
+    border-left: 8px solid var(--color-primary);
+}
+
+.event-card--sub {
+    /* As 4 sub-cartões se ajustam automaticamente */
+    border-top: 5px solid var(--color-primary);
+}
+.event-card--sub h4 {
+    font-size: 1.1em;
+}
+
+/* Estilo visual dos cards de evento */
+.main-fight-display {
+    padding: 30px 20px;
+    background: linear-gradient(to bottom, #1A1A1A, var(--color-secondary));
+}
+.fighter {
+    font-size: 1.6em;
+    border: 2px solid var(--color-primary);
+}
+.vs-label {
+    font-size: 1.2em;
+}
+
+.event-card__footer {
+    border-top: 2px solid var(--color-primary);
+}
+
+
+/* ---------------------------------- */
+/* 5. SEÇÃO PROFESSORES (Otimização de Cards) */
+/* ---------------------------------- */
+.section--instructors {
+    padding: 40px 0; /* Menos padding */
+}
+
+.card-grid--instructors {
+    /* 4 itens por linha em desktop grande */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; /* Espaçamento menor */
+}
+
+.person-card--instructor {
+    display: flex; /* Transforma o card em Flexbox para layout horizontal/vertical */
+    flex-direction: column; 
+    text-align: center;
+    background-color: #1A1A1A;
+}
+
+.person-card__image {
+    height: 150px; /* Altura menor para otimizar */
+    width: 100%;
+}
+
+.person-card__text-content {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.person-card__name {
+    padding-top: 0;
+}
+.person-card__info {
+    text-align: center;
+    font-size: 0.8em; /* Fonte menor para caber mais info */
+}
+
+
+/* ---------------------------------- */
+/* 6. SEÇÃO WORKSHOPS (Mais anúncios e otimização de espaço) */
+/* ---------------------------------- */
+.workshop-intro {
+    font-size: 1.1em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card-grid--workshops {
+    /* 3 workshops por linha */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+}
+
+.workshop-card {
+    background-color: var(--color-secondary);
+    color: white;
+    border-radius: 8px;
+    display: flex; 
+    flex-direction: column; /* Organização vertical */
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.workshop-card__image {
+    width: 100%;
+    height: 150px; /* Altura menor */
+    border-right: none;
+    border-bottom: 5px solid var(--color-secondary);
+}
+.workshop-card__image--ufc { 
+    background-image: url('https://via.placeholder.com/300x150/FF4500/0D0D0D?text=POATAN'); 
+}
+.workshop-card__image--bellator { 
+    background-image: url('https://via.placeholder.com/300x150/FF4500/0D0D0D?text=VITOR+REIS'); 
+}
+.workshop-card__image--boxe { 
+    background-image: url('https://via.placeholder.com/300x150/FF4500/0D0D0D?text=BOXE+CLINICA'); 
+}
+
+.workshop-card__info {
+    padding: 15px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.workshop-card__price {
+    font-size: 1.2em; /* Menor */
+}
+.btn--buy {
+    background-color: white;
+    color: var(--color-primary);
+    border: 2px solid var(--color-secondary);
+    padding: 8px 15px;
+}
+
+
+/* ---------------------------------- */
+/* 7. SEÇÃO SHOPPING (Otimização de Grid) */
+/* ---------------------------------- */
+.products-grid--wide {
+    grid-template-columns: repeat(6, 1fr); /* Mantido para impacto */
+    gap: 15px; /* Espaçamento menor */
+}
+
+.product-card--shop {
+    background-color: #1A1A1A; /* Mais escuro */
+    border: 1px solid #333;
+}
+
+.product-card__price {
+    font-size: 1.3em; /* Menor */
+}
+
+.product-card__category {
+    font-size: 0.8em;
+}
+
+/* ---------------------------------- */
+/* 8. RODAPÉ PERSONALIZADO E CRIATIVO */
+/* ---------------------------------- */
+.footer {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+    border-top: 10px solid var(--color-primary); /* Borda mais grossa de laranja */
+}
+
+.footer__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.developer-credit {
+    font-size: 1.1em;
+    font-weight: 900;
+    color: var(--color-primary); /* Laranja em destaque */
+    margin-top: 10px;
+    padding: 5px 15px;
+    background-color: #333;
+    border-radius: 4px;
+}
+
+/* ---------------------------------- */
+/* 9. MEDIA QUERIES (Ajustes para Mobile/Tablet) */
+/* ---------------------------------- */
+@media (max-width: 1200px) {
+    .card-grid--instructors {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .products-grid--wide {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .events-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .event-card--main {
+        grid-column: 1 / span 2;
+    }
+    .card-grid--instructors {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .card-grid--workshops {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .products-grid--wide {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-banner__content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .login-form-wrapper {
+        order: -1; /* Coloca o login acima do texto no mobile */
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 25px;
+    }
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+    .card-grid--instructors, .card-grid--workshops, .products-grid--wide {
+        grid-template-columns: 1fr;
+    }
+    .event-card--main {
+        grid-column: 1 / 1;
+    }
+    .main-fight-display {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .fighter {
+        width: 100%;
+    }
+}
