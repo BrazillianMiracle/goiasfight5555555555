@@ -97,14 +97,14 @@ h1, h2, h3, h4 { font-family: var(--font-heading); text-transform: uppercase; li
 
 
 /* ---------------------------------- */
-/* 3. HEADER (Laranja em Caixa Única e Profissional) */
+/* 3. HEADER (CONSERVADO) */
 /* ---------------------------------- */
 .main-header {
     background-color: var(--color-primary); 
     padding: 15px 0; 
     border-bottom: 8px solid var(--color-secondary); 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    position: sticky; /* Fixa o header no topo */
+    position: sticky; 
     top: 0;
     z-index: 1000;
 }
@@ -148,13 +148,11 @@ h1, h2, h3, h4 { font-family: var(--font-heading); text-transform: uppercase; li
     padding: 5px 0;
     border-bottom: 2px solid transparent;
 }
-/* Efeito Hover nos Links da Navegação */
 .nav__link:hover {
     color: white;
     border-bottom: 2px solid white;
 }
 
-/* Grupo de Login Compacto */
 .btn--auth-compact {
     padding: 5px 10px;
     font-size: 0.8em;
@@ -162,7 +160,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); text-transform: uppercase; li
     color: var(--color-primary);
     border-radius: 15px;
     box-shadow: none;
-    top: 0; /* Remove o efeito 3D (box-shadow) */
+    top: 0; 
 }
 .btn--auth-compact:hover {
     background-color: #222;
@@ -178,152 +176,83 @@ h1, h2, h3, h4 { font-family: var(--font-heading); text-transform: uppercase; li
 
 
 /* ---------------------------------- */
-/* 4. HERO & LOGIN */
+/* 4. NOVO DESTAQUE DE EVENTOS (Substitui HERO) */
 /* ---------------------------------- */
-.hero-banner {
-    background: url('https://via.placeholder.com/1600x600/1A1A1A/FF4500?text=GOIAS+FIGHT+-+A+NOITE+DE+COMBATE') no-repeat center center/cover;
-    height: 60vh;
-    min-height: 450px;
-    display: flex;
-    align-items: center;
+.event-showcase {
+    background: url('https://via.placeholder.com/1600x700/1A1A1A/FF4500?text=ARENA+GOIANA+CHEIA') no-repeat center top/cover;
+    padding: 70px 0 50px;
     position: relative;
     border-bottom: 5px solid var(--color-primary);
 }
-.hero-banner::after {
+.event-showcase::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6); /* Overlay escuro */
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Overlay mais escuro */
     z-index: 1;
 }
 
-.hero-banner__content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.event-showcase__content {
     z-index: 2;
+    position: relative;
+    color: var(--color-text-light);
+    text-align: center;
 }
 
-.hero-text-area {
-    color: var(--color-text-light);
-    max-width: 50%;
-}
-.hero-text-area h1 {
+.showcase__title {
     font-size: 4em;
     color: var(--color-primary);
     margin-bottom: 15px;
 }
-.hero-text-area p {
+.showcase__subtitle {
     font-size: 1.2em;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
     font-weight: 300;
 }
 
-.login-form-wrapper {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 25px;
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    max-width: 350px;
-    width: 100%;
-    text-align: center;
-}
-.login-form-wrapper h2 {
-    color: var(--color-secondary);
-    font-size: 1.5em;
-    margin-bottom: 15px;
-}
-.login-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #DDD;
-    border-radius: var(--border-radius-sm);
-    font-size: 1em;
-}
-.btn--google {
-    background-color: #4285F4;
-    color: white;
-    box-shadow: 0 4px 0 #1A4E9A;
-    margin-bottom: 10px;
-}
-.btn--google:hover { background-color: #3b78e8; }
-.btn--cta {
-    background-color: var(--color-primary);
-    color: var(--color-secondary);
-    box-shadow: 0 4px 0 var(--color-secondary);
-    width: 100%;
-    margin-top: 5px;
-}
-.btn--cta:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
-    border-color: white;
-}
-.divider { color: #555; margin: 10px 0; }
-.divider span { background-color: white; padding: 0 10px; }
-.forgot-link { color: #777; font-size: 0.9em; display: block; margin-top: 10px; }
-
-
-/* ---------------------------------- */
-/* 5. SEÇÃO EVENTOS (Ênfase Máxima + Hover) */
-/* ---------------------------------- */
-.section--events { padding: 50px 0; }
-
-.events-grid--main-focus {
+.event-showcase-grid {
     display: grid;
-    grid-template-columns: 3fr 1fr; 
-    gap: 20px;
+    grid-template-columns: 2fr 1fr; /* Evento principal maior que o secundário */
+    gap: 30px;
+    text-align: left;
 }
 
-/* Card Principal (Máximo Destaque) */
-.event-card--extreme-focus {
+/* Card Predominante (Principal) */
+.event-card--predominant {
     background-color: #1A1A1A;
-    color: var(--color-text-light);
     border: 5px solid var(--color-primary); 
     border-radius: var(--border-radius-lg);
     box-shadow: 0 10px 20px rgba(255, 69, 0, 0.4);
     cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-/* Efeito Hover no Card Principal */
-.event-card--extreme-focus:hover {
+/* Hover no Principal */
+.event-card--predominant:hover {
     transform: scale(1.01);
     box-shadow: 0 15px 30px rgba(255, 69, 0, 0.6);
 }
 
-.event-card__header { padding: 15px 20px 10px; }
-.event-card__date { color: #BBB; font-size: 0.9em; display: block; margin-bottom: 5px; }
-.event-card__title { font-size: 2.5em; color: var(--color-primary); }
-.event-card__location { font-size: 1.1em; }
+.event-card--predominant .event-card__header { padding: 15px 20px 10px; }
+.event-card--predominant .event-card__date { color: #BBB; font-size: 0.9em; display: block; margin-bottom: 5px; }
+.event-card--predominant .event-card__title { font-size: 2.5em; color: var(--color-primary); }
+.event-card--predominant .event-card__location { font-size: 1.1em; }
 
 .main-fight-display {
-    height: 350px; 
+    height: 250px; 
     position: relative;
     border-top: 2px solid #333;
     border-bottom: 2px solid #333;
-}
-.fight-image--major {
-    background: url('https://via.placeholder.com/1000x350/FF4500/0D0D0D?text=MAIN+EVENT+EM+DESTAQUE') no-repeat center center/cover;
-    height: 100%;
+    background: url('https://via.placeholder.com/1000x250/FF4500/0D0D0D?text=DUELO+FINAL+GOIAS+VICTORY') no-repeat center center/cover;
 }
 .fight-info {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    display: flex; justify-content: space-around; align-items: center;
     background: rgba(0, 0, 0, 0.5);
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: 900;
 }
 .fighter { color: white; }
 .vs-label { color: var(--color-primary); font-size: 0.8em; }
-
-.event-card__footer { padding: 15px 20px; text-align: center; }
-.event-card__category { display: block; margin-bottom: 10px; font-weight: 700; color: var(--color-primary); }
 
 .btn--huge-cta {
     padding: 15px 35px;
@@ -332,167 +261,63 @@ h1, h2, h3, h4 { font-family: var(--font-heading); text-transform: uppercase; li
     color: var(--color-secondary);
     border: 3px solid var(--color-secondary);
     box-shadow: 0 5px 0 var(--color-dark-gray);
+    width: 100%;
+    border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
 }
-.btn--huge-cta:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-primary);
-    transform: scale(1.02);
-}
+.btn--huge-cta:hover { background-color: var(--color-secondary); color: var(--color-primary); }
 
-/* Undercard (Mais Compacto e com Hover) */
-.undercard-grid--compact {
+
+/* Eventos Secundários (Cronologia) */
+.event-showcase-secondary {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
-.event-card--sub {
+.secondary-events-title {
+    font-size: 1.5em;
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 5px;
+    margin-bottom: 0;
+    text-align: center;
+}
+.event-card--secondary {
     background-color: var(--color-dark-gray);
     color: var(--color-text-light);
     border-left: 5px solid var(--color-primary);
-    padding: 10px;
+    padding: 15px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
-/* Efeito Hover nos Cards Secundários */
-.event-card--sub:hover {
+/* Hover no Secundário */
+.event-card--secondary:hover {
     background-color: var(--color-primary);
     color: var(--color-secondary);
     transform: translateX(5px);
     box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
 }
-.btn--tiny { padding: 5px 8px; font-size: 0.7em; box-shadow: none; }
-.btn--light { background-color: var(--color-primary); color: var(--color-secondary); }
-.event-card--sub:hover .btn--light { background-color: var(--color-secondary); color: white; }
+.event-card--secondary .event-card__date { color: #AAA; font-size: 0.8em; margin-bottom: 3px; }
+.event-card--secondary .event-card__title { font-size: 1.3em; margin-bottom: 5px; }
+.event-card--secondary .event-card__category { font-size: 0.9em; color: white; margin-bottom: 10px; }
+.btn--secondary-details { 
+    background-color: var(--color-primary); 
+    color: var(--color-secondary); 
+    padding: 5px 10px; 
+    font-size: 0.7em;
+    box-shadow: none;
+    border-radius: var(--border-radius-sm);
+}
+.event-card--secondary:hover .btn--secondary-details { background-color: var(--color-secondary); color: white; }
 
 
 /* ---------------------------------- */
-/* 6. SEÇÃO PROFESSORES (3 COLUNAS + Efeito Flutuação) */
+/* 5. SEÇÃO PROFESSORES (Design Flutuante - Otimizado) */
 /* ---------------------------------- */
 .card-grid--3-cols-compact {
-    /* Garante 3 colunas em telas grandes */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 15px; 
+    gap: 20px; 
 }
-
 .person-card--instructor {
     display: flex; 
-    flex-direction: column;
-    background-color: white;
-    border-radius: var(--border-radius-md); 
-    overflow: hidden;
-    cursor: pointer;
-    
-    /* Efeito Flutuar e Sombra */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); 
-    border-bottom: 4px solid var(--color-secondary);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-}
-/* Efeito Hover nos Cards de Professores */
-.person-card--instructor:hover {
-    transform: translateY(-5px); /* Flutuar */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
-    border-bottom: 4px solid white; /* Destaque na borda inferior */
-}
-
-.person-card__image {
-    height: 90px; /* Altura da Imagem reduzida */
-    width: 100%;
-    background: url('https://via.placeholder.com/300x90/333333/FF4500?text=PROFESSOR') no-repeat center center/cover;
-    border-bottom: 3px solid var(--color-primary);
-}
-/* Definição das imagens (exemplo) */
-.person-card__image--brucelee { background-image: url('https://via.placeholder.com/300x90/333333/FF4500?text=BRUCE+LEE'); }
-.person-card__image--prof1 { background-image: url('https://via.placeholder.com/300x90/555555/FF4500?text=MUAY+THAI'); }
-.person-card__image--prof2 { background-image: url('https://via.placeholder.com/300x90/777777/FF4500?text=BOXE'); }
-.person-card__image--prof3 { background-image: url('https://via.placeholder.com/300x90/AAAAAA/FF4500?text=TAEKWONDO'); }
-/* (Demais imagens... seguir o padrão) */
-
-
-.person-card__text-content {
-    padding: 10px 8px; 
-    text-align: center;
-}
-
-.person-card__name {
-    color: var(--color-secondary);
-    font-size: 1.1em;
-}
-
-.person-card__role {
-    color: var(--color-primary); /* Role em Laranja */
-    font-weight: 700;
-    font-size: 0.8em;
-    margin-bottom: 5px;
-}
-
-.person-card__details {
-    font-size: 0.8em; 
-    color: #555;
-    font-weight: 400;
-    line-height: 1.4;
-    min-height: 38px;
-}
-
-
-/* ---------------------------------- */
-/* 7. SEÇÃO WORKSHOPS (3 COLUNAS + Efeito Flutuação Flutuante) */
-/* ---------------------------------- */
-.workshop-intro {
-    text-align: center;
-    font-size: 1.1em;
-    color: var(--color-primary); 
-    margin-bottom: 30px;
-    font-weight: 700;
-}
-.card-grid--workshops {
-    /* Garante 3 ou 4 colunas para workshops */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.workshop-card {
-    background-color: var(--color-dark-gray); 
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-    padding-bottom: 15px;
-    cursor: pointer;
-    
-    /* Efeito Flutuar e Delimitação Visível (Borda Laranja Forte) */
-    border: 3px solid var(--color-dark-gray); /* Borda escura base */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
-}
-/* Efeito Hover nos Cards de Workshops (Maior Destaque) */
-.workshop-card:hover {
-    transform: translateY(-8px); /* Flutuação mais intensa */
-    border-color: var(--color-primary); /* Borda Laranja de Destaque */
-    box-shadow: 0 15px 30px rgba(255, 69, 0, 0.6); /* Sombra Laranja */
-}
-
-.workshop-card__header-img {
-    height: 150px;
-    background: url('https://via.placeholder.com/300x150/444444/FF4500?text=SEMINARIO') no-repeat center center/cover;
-}
-/* Definição das imagens (exemplo) */
-.workshop-card__image--ufc { background-image: url('https://via.placeholder.com/300x150/000000/FF4500?text=ALEX+POATAN'); }
-.workshop-card__image--one { background-image: url('https://via.placeholder.com/300x150/333333/FF4500?text=ONE+CHAMP'); }
-/* (Demais imagens... seguir o padrão) */
-
-.workshop-card__info { padding: 15px 20px; }
-
-.workshop-card__date { color: var(--color-primary); font-weight: 900; display: block; margin-bottom: 8px; font-size: 0.85em; }
-
-.workshop-card h3 { color: var(--color-text-light); font-size: 1.4em; margin-bottom: 5px; }
-
-.workshop-card__theme { color: #AAA; font-size: 0.9em; margin-bottom: 15px; }
-
-.workshop-card__price {
-    font-size: 1.8em;
-    color: var(--color-primary); 
-    font-weight: 900;
-    margin-bottom: 15px;
-}
-
-.btn--buy {
+    flex
